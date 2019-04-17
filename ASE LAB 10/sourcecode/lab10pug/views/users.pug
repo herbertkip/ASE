@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    div.text-center
+        div(class="form-signin")
+            - var h1Classe= ['h3', 'mb-3', 'font-weight-normal']
+            h1(class=h1Classes) ASE LAB 9 : Successful Sign-in
+            div.text-center
+                p Login successful , Current user -- #{username}!
