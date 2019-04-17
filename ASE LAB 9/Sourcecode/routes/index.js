@@ -1,18 +1,9 @@
-const express = require('express')
-const router = express.Router()
+var express = require('express');
+var router = express.Router();
 
-const welcome = require('./handlers/welcome')
-const login = require('./handlers/login')
-const register = require('./handlers/register')
-const logout = require('./handlers/logout')
-const registering = require('./handlers/registering')
-const log = require('./handlers/log')
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { error: false });
+});
 
-router.get('/welcome', welcome)
-router.get('/login', login)
-router.get('/register', register)
-router.get('/logout', logout)
-router.post('/registering', registering)
-router.post('/log', log)
-
-module.exports = router
+module.exports = router;
