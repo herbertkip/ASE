@@ -1,0 +1,72 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/games']"><mat-icon>list</mat-icon></a>
+</div>
+<form [formGroup]="gameForm" (ngSubmit)="onFormSubmit(gameForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Game Name" formControlName="game_name"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!gameForm.get('game_name').valid && gameForm.get('game_name').touched">Please enter Name</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Team Name" formControlName="team"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!gameForm.get('team').valid && gameForm.get('team').touched">Please enter Team Name</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Organizer" formControlName="organizer"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!gameForm.get('organizer').valid && gameForm.get('organizer').touched">Please enter Game Organizer Name.</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Game Location" formControlName="game_loc"
+           [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!gameForm.get('game_loc').valid && gameForm.get('game_loc').touched">Please enter Game Location, complete Address.</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Game Day" formControlName="game_date"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!gameForm.get('game_date').valid && gameForm.get('game_date').touched">Please enter planned Game Day.</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Game Time" formControlName="game_time"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!gameForm.get('game_time').valid && gameForm.get('game_time').touched">Please enter planned Game Time.</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Game Duration" formControlName="game_duration"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!gameForm.get('game_duration').valid && gameForm.get('game_duration').touched">Please enter planned Game Duration.</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Organizer Contact Number" formControlName="contact_org"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!gameForm.get('contact_org').valid && gameForm.get('contact_org').touched">Please enter Contact Number.</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Required Player Number" formControlName="req_player_num"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!gameForm.get('req_player_num').valid && gameForm.get('req_player_num').touched">Please enter Required Player Number.</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!gameForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>

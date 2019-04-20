@@ -1,0 +1,61 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/games']"><mat-icon>list</mat-icon></a>
+</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title><h2>Team: {{game.team}}</h2></mat-card-title>
+    <mat-card-subtitle>Organizer: {{game.organizer}}</mat-card-subtitle>
+  </mat-card-header>
+  <div id="container">
+    <div id="left"><mat-card-content>
+      <dl>
+        <dt>Game Name:</dt>
+        <dd>{{game.game_name}}</dd>
+        <dt>Team:</dt>
+        <dd>{{game.team}}</dd>
+        <dt>Game Organizer:</dt>
+        <dd>{{game.organizer}}</dd>
+        <dt>Game Location:</dt>
+        <dd>{{game.game_loc}}</dd>
+        <dt>Game Date:</dt>
+        <dd>{{game.game_date | date}}</dd>
+        <dt>Game Time:</dt>
+        <dd>{{game.game_time}}</dd>
+        <dt>Game Duration:</dt>
+        <dd>{{game.game_duration}}</dd>
+        <dt>Contact Organizer:</dt>
+        <dd>{{game.contact_org}}</dd>
+      </dl>
+    </mat-card-content>
+    </div>
+    <div id="right">
+      <div>
+      <h2>{{weatherData.name}}'s current weather.</h2>
+      <div class="row">
+        Temp: {{weatherData.main.temp}}<br>
+        max: {{weatherData.main.temp_max}}, min: {{weatherData.main.temp_min}}<br>
+        Wind: {{weatherData.wind.speed}}
+      </div>
+    </div></div>
+    <div id="center"><div>
+      <h3>5 day/ 3 Hr Weather Forecast of {{weatherForcast.city.name}}.</h3>
+      <div class="row">
+        <ul *ngFor= "let data of datas">
+          Date and Time: {{data.dt_txt}}
+          <li>Temp: {{data.main.temp}}<br>
+            max: {{data.main.temp_max}}, min: {{data.main.temp_min}}<br>
+            Humidity: {{data.main.humidity}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </div>
+<a>{{authSer.user.email}}, {{game.org_email_id}}</a>
+  <mat-card-actions>
+
+    <a mat-raised-button color="primary" [routerLink]="['/game-edit', game._id]"><mat-icon>edit</mat-icon></a>
+    <a mat-raised-button color="warn" (click)="deleteGame(game._id)"><mat-icon>delete</mat-icon></a>
+    <a mat-raised-button color="warn" (click)="enrollGame(game._id)">Enroll</a>
+  </mat-card-actions>
+</mat-card>
