@@ -6,7 +6,8 @@ var logger = require('morgan');
 const cors = require('cors');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/mean-angular6')
+//mongoose.connect('mongodb://localhost/')
+mongoose.connect("mongodb://localhost:27017/mean-angular6", { useNewUrlParser: true })
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 

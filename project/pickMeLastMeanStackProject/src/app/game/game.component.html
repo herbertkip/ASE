@@ -34,25 +34,32 @@
       /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
       @media screen and (max-width: 600px) {
         .column {
-          width: 100%;
+          width: 95%;
         }
       }
     </style>
   </head>
   <body>
 
-  <h2>Pick me Last; Let us play together</h2>
-  <p>Check out these great games scheduled</p>
+ 
 
   <div class="row">
 
   <div class="column">
-    <h1>{{ title }}</h1>
+    <h1 style="color: red"><img src="https://www.pnclogos.com/wp-content/uploads/2017/02/sports-logo.png" alt="logo"  height="75px" width="150px">{{ title }}</h1>
 
     <!-- this creates a google map on the page with the given lat/lng from -->
     <!-- the component as the initial center of the map: -->
     <agm-map [latitude]="lat" [longitude]="lng">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        <agm-marker [latitude]="lat2" [longitude]="lng2" [label]="'Rangers'">
+        </agm-marker>
+        <agm-marker [latitude]="lat3" [longitude]="lng3" [label]="'SportingKC'">
+        </agm-marker>
+        <agm-marker [latitude]="lat4" [longitude]="lng4" [label]="'GolfMania'">
+        </agm-marker>
+      <!--<agm-marker [latitude]="lat5" [longitude]="lng5" [label]="'Team'">
+      </agm-marker> -->
     </agm-map>
   </div>
   <div class="column">
@@ -102,5 +109,6 @@
   </div>
 
   </body>
+  <footer><img src="https://cekrekening.com/assets/frontend/images/footer/footer_decal_middle.png" width="100%" ></footer>
   </html>
 </div>

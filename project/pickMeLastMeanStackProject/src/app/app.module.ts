@@ -19,9 +19,15 @@ import { LoginComponent } from './login/login.component';
 
 import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
+import {Directive, Input, OnDestroy, OnChanges, OnInit, SimpleChange} from '@angular/core';
+
+import {MarkerManager, InfoWindowManager} from '@agm/core';
+
 
 
 import { WeatherService } from './weather.service';
+
+
 
 import {
   MatInputModule,
@@ -120,14 +126,13 @@ const config = {
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyA4Xlu9Um3ZbW5jz2joBTStq4_ywX296f'
+      apiKey: 'AIzaSyArZIFha0y7peO1Lfiep4Va1TeZr9B9gx4'
     }),
   ],
   providers: [AngularFireAuth, WeatherService, LoginActivate],
-  declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
 
+export class AppModule { }
 
 

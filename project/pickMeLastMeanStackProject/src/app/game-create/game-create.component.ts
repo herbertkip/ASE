@@ -18,6 +18,8 @@ export class GameCreateComponent implements OnInit {
   curr_enrolled_player_num = 0;
   organizer = '';
   game_loc = '';
+  //game_loc_lat = '';
+ // game_loc_lng = '';
   game_date = Date.now();
   game_time = '';
   game_duration = '';
@@ -33,6 +35,8 @@ export class GameCreateComponent implements OnInit {
       'team' : [null, Validators.required],
       'organizer' : [null, Validators.required],
       'game_loc' : [null, Validators.required],
+     // 'game_loc_lng' : [null, Validators.required],
+     // 'game_loc_lat' : [null, Validators.required],
       'game_date' : [null, Validators.required],
       'game_time' : [null, Validators.required],
       'game_duration' : [null, Validators.required],

@@ -12,6 +12,8 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0-beta.5",
+    "@agm/js-marker-clusterer": "^1.0.0-beta.5",
+    "@agm/snazzy-info-window": "^1.0.0-beta.5",
     "@angular/animations": "^6.0.0",
     "@angular/cdk": "^6.2.1",
     "@angular/common": "^6.0.0",
@@ -26,8 +28,10 @@
     "@angular/router": "^6.0.0",
     "@types/googlemaps": "^3.30.19",
     "@types/lodash": "^4.14.123",
+    "angular": "^1.7.8",
     "angularfire2": "^5.1.1",
     "body-parser": "^1.18.3",
+    "cli": "^1.0.1",
     "core-js": "^2.5.4",
     "cors": "^2.8.5",
     "express": "^4.16.3",
@@ -36,7 +40,7 @@
     "mongoose": "^5.4.18",
     "morgan": "^1.9.1",
     "package.json": "^2.0.1",
-    "rxjs": "^6.0.0",
+    "rxjs": "^6.5.1",
     "serve-favicon": "^2.5.0",
     "zone.js": "^0.8.26"
   },

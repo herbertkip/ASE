@@ -30,6 +30,22 @@
       <span *ngIf="!gameForm.get('game_loc').valid && gameForm.get('game_loc').touched">Please enter Game Location, complete Address.</span>
     </mat-error>
   </mat-form-field>
+  <!--
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Game Location Latitude" formControlName="game_loc_lat"
+              [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!gameForm.get('game_loc_lat').valid && gameForm.get('game_loc_lat').touched">Please enter Game Location Latitude Coordinates</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Game Location Longitude" formControlName="game_loc_lng"
+              [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!gameForm.get('game_loc_lng').valid && gameForm.get('game_loc_lng').touched">Please enter Game Location Longitude Coordinates</span>
+    </mat-error>
+  </mat-form-field>
+  -->
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Game Day" formControlName="game_date"
            [errorStateMatcher]="matcher">
