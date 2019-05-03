@@ -13,15 +13,32 @@
 #left {
   float:left;
   width:33%;
+  background-color: aqua;
+  height: 800px;
+  font-size: medium;
 }
 
 #center {
   display: inline-block;
-  margin:0 auto;
+  margin:0 5px;
   width:33%;
+  background-color: aquamarine;
+  height: 800px;
 }
 
 #right {
   float:right;
   width:33%;
+  background-color: cadetblue;
+  height: 800px;
+}
+#header{
+  background-color: antiquewhite;
+  align-content: center;
+}
+#footer{
+  background-color: antiquewhite;
+}
+#footer a{
+  align-items: center;
 }

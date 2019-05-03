@@ -2,7 +2,7 @@
   <a mat-raised-button color="primary" [routerLink]="['/games']"><mat-icon>list</mat-icon></a>
 </div>
 <mat-card class="example-card">
-  <mat-card-header>
+  <mat-card-header id="header">
     <mat-card-title><h2>Team: {{game.team}}</h2></mat-card-title>
     <mat-card-subtitle>Organizer: {{game.organizer}}</mat-card-subtitle>
   </mat-card-header>
@@ -25,37 +25,43 @@
         <dd>{{game.game_duration}}</dd>
         <dt>Contact Organizer:</dt>
         <dd>{{game.contact_org}}</dd>
+        <dt>Registered Player:</dt>
+        <dd>{{game.player_info?.length}}</dd>
+        <dt>Required Number of Player:</dt>
+        <dd>{{game.req_player_num}}</dd>
+        <dt>Open spots:</dt>
+        <dd>{{game.req_player_num - game.player_info?.length}}</dd>
+        <dt>Registered Players are:</dt>
+        <p *ngFor= "let email of game.player_info">{{email}}</p>
       </dl>
     </mat-card-content>
     </div>
     <div id="right">
-      <div>
+      <p>
       <h2>{{weatherData.name}}'s current weather.</h2>
-      <div class="row">
-        Temp: {{weatherData.main.temp}}<br>
-        max: {{weatherData.main.temp_max}}, min: {{weatherData.main.temp_min}}<br>
-        Wind: {{weatherData.wind.speed}}
-      </div>
-    </div></div>
+      <p *ngIf="showWeatherDtl">
+        Today: {{timeConverter(weatherData.dt)}}
+        <img class="img-thumbnail forecast-img" src="http://openweathermap.org/img/w/{{weatherData.weather[0].icon}}.png" />
+      </p>
+    </div>
     <div id="center"><div>
-      <h3>5 day/ 3 Hr Weather Forecast of {{weatherForcast.city.name}}.</h3>
+      <button *ngIf="!showWeatherDtl" (click)="showWeatherForecast()">Show weather</button>
+      <div  *ngIf="showWeatherDtl">
+      <h3>7 days Weather Forecast <br> for <br>{{weatherForcast.city.name}}.</h3>
       <div class="row">
-        <ul *ngFor= "let data of datas">
-          Date and Time: {{data.dt_txt}}
-          <li>Temp: {{data.main.temp}}<br>
-            max: {{data.main.temp_max}}, min: {{data.main.temp_min}}<br>
-            Humidity: {{data.main.humidity}}
-          </li>
-        </ul>
+        <p *ngFor= "let data of weatherForcast.list">
+          Date: {{timeConverter(data.dt)}}<br>
+          <img class="img-thumbnail forecast-img" src="http://openweathermap.org/img/w/{{data.weather[0].icon}}.png" />
+        </p>
       </div>
+    </div>
     </div>
     </div>
   </div>
-<a>{{authSer.user.email}}, {{game.org_email_id}}</a>
-  <mat-card-actions>
-
+  <mat-card-actions id="footer" align="center">
     <a mat-raised-button color="primary" [routerLink]="['/game-edit', game._id]"><mat-icon>edit</mat-icon></a>
     <a mat-raised-button color="warn" (click)="deleteGame(game._id)"><mat-icon>delete</mat-icon></a>
-    <a mat-raised-button color="warn" (click)="enrollGame(game._id)">Enroll</a>
+    <a mat-raised-button color="warn" (click)="enrollInToGame(game._id)">Enroll</a>
   </mat-card-actions>
 </mat-card>
+
