@@ -8,8 +8,8 @@ import { map, catchError, retry } from 'rxjs/operators';
 })
 export class WeatherService {
   private _currentWeatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
-  private _forecastUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=';
-  private _apiKey = '9391c234f787ac1447cd71d7432aa3f6';
+  private _forecastUrl = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=';
+  private _apiKey = '9de243494c0b295cca9337e1e96b00e2';
   constructor(private _http: HttpClient) { }
 
   // returns current weather of the city
@@ -27,7 +27,7 @@ export class WeatherService {
       );
   }
 
-  // returns 5 days weather forecast of the city
+  // returns 7 days weather forecast of the city
   get5DaysWeatherData(city) {
     return this._http.get(this._forecastUrl + city + '&APPID=' + this._apiKey + '&units=metric')
       .pipe(map(data => {
